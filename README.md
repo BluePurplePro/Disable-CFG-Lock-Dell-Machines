@@ -9,8 +9,7 @@ In order to extract BIOS payload from Dell BIOS upgrade package you need:
 
 - BIOS Update package
 - Intel (CS)ME System Tools (https://comsystem-tlt.ru/obzori/me-txe-region OR https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)
-(NOTE download version for your mainboard Example I have E6530 with 7 series chipset + IntelME v8 . I download Intel ME System Tools v8 r3.rar)
-- Intel (CS)ME System Tools (https://comsystem-tlt.ru/obzori/me-txe-region OR https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)
+(NOTE download version for your mainboard. Example I have E6530 with 7 series chipset + IntelME v8 . I download Intel ME System Tools v8 r3.rar)
 - UEFITool(https://github.com/LongSoft/UEFITool/releases)
 - UEFI Patch(https://github.com/LongSoft/UEFITool/releases)
 - modGRUBShell.efi(https://github.com/datasone/grub-mod-setup_var/releases)
@@ -57,7 +56,8 @@ fptw64.exe -bios -f flash.fd
 - Run flashbios.bat
 - WAITTTTTTTTTTT
 - BOMMMMMMM BIOS has UNLOCK CFG
-
+- USE VerifyMsrE2.efi to test
+SORRY MY ENGLISH NOT GOOD
 
 
 
