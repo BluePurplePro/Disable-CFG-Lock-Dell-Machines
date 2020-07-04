@@ -36,7 +36,7 @@ TYPE
 
    cd ./desktop/UEFIpatch
    
-   UEFIpatch backup.fd
+   ./UEFIpatch backup.fd
    
 - Now you have backup.fd.patched. Rename to flash.fd
 ## Step 3: UNLOCK BIOS
@@ -46,7 +46,8 @@ TYPE
 - Now you will see "BIOS Lock" in "setup" line
 - Right Click "Setup" -> Extract body and rename it to BIOSlock.fdb
 - Open teminal type
- <PATH IFRExtract> BIOSlock.fdb setup.txt
+
+ ./<PATH IFRExtract> BIOSlock.fdb setup.txt
 - Find "Bios lock" int setup.txt
 - you see:" BIOS Lock, VarStoreInfo(varoffset/varname) 0xYY ( Example 0x04)
 - Put modGRUBShell.efi in OC/tool and add it on config.plist (or boot using another method)
