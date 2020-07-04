@@ -19,9 +19,13 @@ In order to extract BIOS payload from Dell BIOS upgrade package you need:
 ## Step 1: Create backup bios with Intel (CS)ME System Tools
 - Boot into Windows ( I use windows XP PE)
 - create Backupbios.bat in Intel (CS)ME System Tools》Flash Programming Tool》WIN(64) and RUN it
+
 Code 
+
 cd /d %~dp0
+
 fptw64.exe -bios -d backup.fd
+
 - Run Backupbios.bat
 - Now you have backup.fd file
 ## Step 2: mod bios( if you download UEFITool and UEFI patch for MAC. YOU must boot into MACOS)
@@ -29,8 +33,11 @@ fptw64.exe -bios -d backup.fd
 - Put UEFI Patch in Desktop
 - open Teminal ( CMD)
 TYPE
+
    cd ./desktop/UEFIpatch
+   
    UEFIpatch backup.fd
+   
 - Now you have backup.fd.patched. Rename to flash.fd
 ## Step 3: UNLOCK BIOS
 - PLEASE read this guide first: https://github.com/dreamwhite/bios-extraction-guide/blob/master/Dell/README.md
@@ -44,15 +51,23 @@ TYPE
 - you see:" BIOS Lock, VarStoreInfo(varoffset/varname) 0xYY ( Example 0x04)
 - Put modGRUBShell.efi in OC/tool and add it on config.plist (or boot using another method)
 - TYPE
+   
   setup_var 0xYY (You will see "offset is 0x01")
+  
   setup_var 0xYY 0x00 (You will see "offset is 0x00". Now BIOS was unlock)
+  
   Exit
+  
 ## Step 4: UNLOCK CFG
 - Boot into Windows ( I use windows XP PE)
 - create flashbios.bat (use notepad) in Intel (CS)ME System Tools》Flash Programming Tool》WIN(64) and RUN it
-Code 
+
+Code
+
 cd /d %~dp0
+
 fptw64.exe -bios -f flash.fd
+
 - Run flashbios.bat
 - WAITTTTTTTTTTT
 - BOMMMMMMM BIOS has UNLOCK CFG
