@@ -73,7 +73,7 @@ fptw64.exe -bios -d backup.fd
 
 ![Right click Extract as is](https://github.com/user-attachments/assets/1588d6b5-5445-4d16-be87-381b84276152)
 
-[UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)- Name the file .sct/.bin as BIOSLock and save.
+- Name the file .sct/.bin as BIOSLock and save.
 
 ![Save as BIOS Lock](https://github.com/user-attachments/assets/46d1a964-2afd-4f24-a721-e8a478fdb9c1)
 
