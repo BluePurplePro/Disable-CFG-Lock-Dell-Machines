@@ -45,7 +45,7 @@ fptw64.exe -bios -d backup.fd
 <summary>Patch the BIOS file</summary>
 
 - Extract [UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
-- Copy ``backup.fd`` file from section I to `%userprofile%\Downloads` (same folder with UEFIPatch)
+- Copy ``backup.fd`` file from [section I](https://github.com/BluePurplePro/Disable-CFG-Lock-Dell-Machines?tab=readme-ov-file#i-dump-your-bios) to `%userprofile%\Downloads` (same folder with UEFIPatch)
 - Open Command Promt and type ``cd %userprofile%\Downloads`` then press Enter
 - Type ```UEFIPatch.exe backup.fd``` then press Enter to patch the backup.fd file
 
