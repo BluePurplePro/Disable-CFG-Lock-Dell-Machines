@@ -7,7 +7,6 @@
 
 ![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
 - [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases)
-- [VerifyMsrE2.efi](https://github.com/acidanthera/OpenCorePkg/releases)
 - [UEFITool & UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
 - [IFRExtract](https://github.com/LongSoft/IFRExtractor-RS/releases)
 - [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
@@ -17,7 +16,7 @@
 >
 > For example, Intel ME System Tools v8 r3 (7-Series systems which come with ME firmware v8) is the right version for my motherboard since the southbridge is QM77
 
-## Create a backup BIOS using [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
+## I. Create a backup BIOS using [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
 - Extract Intel ME System Tools (Assuming all downloaded files are in %userprofile%\Downloads)
 - Go to %userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64 and create a new text document
 
@@ -32,7 +31,7 @@ fptw64.exe -bios -d backup.fd
 
 ![backupbios bat](https://github.com/user-attachments/assets/30c9c768-2053-4347-b33b-239a249f263d)
 
-## Patch the BIOS ``backup.fd`` file
+## II. Patch the BIOS ``backup.fd`` file
 - Extract UEFIPatch
 - Copy ``backup.fd`` file from step 1 to %userprofile%\Downloads (same folder with UEFIPatch)
 - Open Command Promt and type ``cd %userprofile%\Downloads`` then press Enter
@@ -41,8 +40,11 @@ fptw64.exe -bios -d backup.fd
  ![UEFIPatch](https://github.com/user-attachments/assets/ca819316-f2e6-4c87-863c-6e549585651f)
 
 - UEFIPatch will generate ``backup.fd.patched`` file. Rename ``backup.fd.patched`` to ``flash.fd``
+- Copy the ``flash.fd`` file to %userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64
 
-## Unlock the BIOS
+![Copy flash fd to userprofile_downloads_intel me system tools](https://github.com/user-attachments/assets/497f97ee-d0da-4326-8145-a3600ec0d86a)
+
+## III. Unlock the BIOS
 - Extract UEFITool
 - Open backup.fd file using UEFITool.exe and find **BIOS Lock** in the **Text** tab ~> Press Enter
 
@@ -64,35 +66,39 @@ fptw64.exe -bios -d backup.fd
 
 ![BIOS Lock search](https://github.com/user-attachments/assets/dd613251-c839-4795-b0a3-3e8a3c3a08cf)
 
-- Add modGRUBShell.efi to config.plist, copy modGRUBShell.efi to EFI/OC/Tool
-- Boot modGRUBShell.efi from OpenCore Bootloader
+- Boot from `modGRUBShell.efi`:
+  - Through a UEFI shell (navigate the FS with `cd` and `ls` basic UNIX navigation commands) and find the `EFI partition` where the `modGRUBShell.efi` file is located
+  - Or through OpenCore Bootloader (by adding it to `config.plist` under `Misc/Tools` context)
 
-- TYPE
-   
-  setup_var 0xYY (You will see "offset is 0x01")
-  
-  setup_var 0xYY 0x00 (You will see "offset is 0x00". Now BIOS was unlock)
-  
-  Exit
-  
-## Step 4: UNLOCK CFG
-- Boot into Windows ( I use windows XP PE)
-- create flashbios.bat (use notepad) in Intel (CS)ME System Tools》Flash Programming Tool》WIN(64) and RUN it
+![modGRUBShell efi](https://github.com/user-attachments/assets/7eb49935-2c65-4886-8d76-9ba2e1dd55a4)
 
-Code
+- Type ``setup_var 0xYY`` (``YY`` corressponds to the **VarOffset**, **VarStoreInfo** or **Varname** you found earlier) and hit Enter. The value usually returns 0x01 (which means BIOS Lock is enabled)
 
+![Type setup_var 0xYY](https://github.com/user-attachments/assets/12281f6f-2e37-4619-83c5-f49ad0c69099)
+
+- Type ``setup_var 0xYY 0x00`` and press Enter to unlock the BIOS
+
+![Type setup_var 0xYY 0x00](https://github.com/user-attachments/assets/ce2d4aa1-5b10-465a-a5c2-0e89ac11c804)
+
+ - After that, type ``exit`` and reboot back to Windows
+ 
+## IV. Disable CFG Lock
+- Go to %userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64 and create a new text document
+- Edit the new text document, type/copy these command line and save it.
+```
 cd /d %~dp0
-
 fptw64.exe -bios -f flash.fd
+```
 
-- Run flashbios.bat
-- WAITTTTTTTTTTT
-- BOMMMMMMM BIOS has UNLOCK CFG
-- USE VerifyMsrE2.efi to test
-SORRY MY ENGLISH NOT GOOD
+![flashbios bat](https://github.com/user-attachments/assets/90f62dc5-16e3-4d51-bda6-143489c32d69)
 
+- Rename ``New Text Document.txt`` to ``flashbiot.bat``. Run ``flashbios.bat`` as Administrator
 
+![And now we wait](https://github.com/user-attachments/assets/d9fe5efd-3d41-4b75-9135-fee1097af814)
 
+- The CFG Lock should be disabled after the Command Prompt finished patching.
+
+- Using [VerifyMsrE2.efi](https://github.com/acidanthera/OpenCorePkg/releases) should return 
 
 # Credit
 
