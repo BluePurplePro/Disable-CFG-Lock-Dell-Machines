@@ -1,5 +1,5 @@
 # Disable-CFG-Lock-Dell-Machines
-This repository will guide you how to disable CFG Lock on Dell Machines. Useful for those who can't find ``CFG Lock`` or ``MSR Lock`` Unicode text in their extracted BIOS file that [Fixing CFG Lock from Dortania's OpenCore Post Install Guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) and [dreamwhite's bios extraction guide](https://github.com/dreamwhite/bios-extraction-guide) had covered.
+This repository will guide you how to disable CFG Lock on Dell Machines. Useful for those who can't find ``CFG Lock`` or ``MSR Lock`` Unicode text in their extracted BIOS file that [Fixing CFG Lock from Dortania's OpenCore Post Install Guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) and [dreamwhite's bios extraction guide](https://github.com/dreamwhite/bios-extraction-guide) covered.
 
 # Preparation
 - [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases)
