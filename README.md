@@ -1,53 +1,69 @@
 # DELL-CFG-Unlock
-DELL CFG UNLOCK
 
-TRY THIS GUIDE FIRST: https://github.com/dreamwhite/bios-extraction-guide/blob/master/Dell/README.md
 
-## Introduction
+# Preparation
+- Windows operating system-duh!
+- Turn off Hide extensions for known file types
 
-In order to extract BIOS payload from Dell BIOS upgrade package you need:
+![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
+- [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases)
+- [VerifyMsrE2.efi](https://github.com/acidanthera/OpenCorePkg/releases)
+- [UEFITool & UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
+- [IFRExtract](https://github.com/LongSoft/IFRExtractor-RS/releases)
+- [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
+> [!IMPORTANT]
+> It is crutial to choose the right Intel ME System Tools for your motherboard. You can check what kind of chipsest/southbridge using [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
+> ![CPU-Z](https://github.com/user-attachments/assets/4eef748d-30ff-4842-b004-fa24ec868b9b)
+>
+> For example, Intel ME System Tools v8 r3 (7-Series systems which come with ME firmware v8) is the right version for my motherboard since the southbridge is QM77
 
-- BIOS Update package
-- Intel (CS)ME System Tools (https://comsystem-tlt.ru/obzori/me-txe-region OR https://www.win-raid.com/t596f39-Intel-Management-Engine-Drivers-Firmware-amp-System-Tools.html)
-(NOTE download version for your mainboard. Example I have E6530 with 7 series chipset + IntelME v8 . I download Intel ME System Tools v8 r3.rar)
-- UEFITool(https://github.com/LongSoft/UEFITool/releases)
-- UEFI Patch(https://github.com/LongSoft/UEFITool/releases)
-- modGRUBShell.efi(https://github.com/datasone/grub-mod-setup_var/releases)
-- IFRExtract(https://github.com/LongSoft/Universal-IFR-Extractorreleases)
-- VerifyMsrE2.efi from OpenCorePkg EFI/OC/Tools folder](https://github.com/acidanthera/OpenCorePkg/releases)
+## Create a backup BIOS using [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
+- Extract Intel ME System Tools (Assuming all downloaded files are in %userprofile%\Downloads)
+- Go to %userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64 and create a new text document
 
-## Step 1: Create backup bios with Intel (CS)ME System Tools
-- Boot into Windows ( I use windows XP PE)
-- create Backupbios.bat in Intel (CS)ME System Tools》Flash Programming Tool》WIN(64) and RUN it
+![Create new text document](https://github.com/user-attachments/assets/71743be5-2c7f-42e6-bd5d-cc3c3b2ca86a)
 
-Code 
-
+- Edit the new text document, type/copy these command line and save it.
+```
 cd /d %~dp0
-
 fptw64.exe -bios -d backup.fd
+```
+- Rename ``New Text Document.txt`` to ``backupbios.bat``. Run ``backupbios.bat`` as Administrator to create ``backup.fd`` file
 
-- Run Backupbios.bat
-- Now you have backup.fd file
-## Step 2: mod bios( if you download UEFITool and UEFI patch for MAC. YOU must boot into MACOS)
-- this step for macos. windows do the same
-- Put UEFI Patch in Desktop
-- open Teminal ( CMD)
-TYPE
+![backupbios bat](https://github.com/user-attachments/assets/30c9c768-2053-4347-b33b-239a249f263d)
 
-   cd ./desktop/UEFIpatch
-   
-   ./UEFIpatch backup.fd
-   
-- Now you have backup.fd.patched. Rename to flash.fd
-## Step 3: UNLOCK BIOS
-- PLEASE read this guide first: https://github.com/dreamwhite/bios-extraction-guide/blob/master/Dell/README.md
-- Orginal guide https://www.win-raid.com/t3908f16-GUIDE-Grub-Fix-Intel-FPT-Error-or-BIOS-Lock-Asus-Other-Mod-BIOS-Flash.html
-- Put backup.fd into UEFITool and FIND "BIOS Lock"
-- Now you will see "BIOS Lock" in "setup" line
-- Right Click "Setup" -> Extract body and rename it to BIOSlock.fdb
-- Open teminal type
+## Patch the BIOS ``backup.fd`` file
+- Extract UEFIPatch
+- Copy ``backup.fd`` file from step 1 to %userprofile%\Downloads (same folder with UEFIPatch)
+- Open Command Promt and type ``cd %userprofile%\Downloads`` then press Enter
+- Type ```UEFIPatch.exe backup.fd``` then press Enter to patch the backup.fd file
 
- ./PATH IFRExtract/BIOSlock.fdb setup.txt
+ ![UEFIPatch](https://github.com/user-attachments/assets/ca819316-f2e6-4c87-863c-6e549585651f)
+
+- UEFIPatch will generate ``backup.fd.patched`` file. Rename ``backup.fd.patched`` to ``flash.fd``
+
+## Unlock the BIOS
+- Extract UEFITool
+- Open backup.fd file using UEFITool.exe and find **BIOS Lock** in the **Text** tab ~> Press Enter
+
+![UEFITool BIOS Lock](https://github.com/user-attachments/assets/32488592-4daa-418c-bf32-389072008f65)
+
+- Select what the search returned. Right click and select **Extract as is...**
+
+![Right click Extract as is](https://github.com/user-attachments/assets/1588d6b5-5445-4d16-be87-381b84276152)
+
+- Name the file .sct/.bin as BIOSLock and save.
+
+![Save as BIOS Lock](https://github.com/user-attachments/assets/46d1a964-2afd-4f24-a721-e8a478fdb9c1)
+
+- Extract IFRExtract, then open Command Prompt and type ``ifrextractor.exe BIOSLock.sct`` or ``ifrextractor.exe BIOSLock.bin``
+
+![Extract the BIOSLock](https://github.com/user-attachments/assets/db1afd80-d683-4083-861a-84138fc9fe2e)
+
+- IRFExtract will generate **BIOSLock.sct.0.0.en-US.uefi.ifr.txt** file or **BIOSLock.bin.0.0.en-US.uefi.ifr.txt** file. Open the new txt file and find **BIOS Lock**. Check for **VarOffset**, **VarStoreInfo** or **Varname** value and write it down a note or something (in my case it is ``0x40``)
+
+![BIOS Lock search](https://github.com/user-attachments/assets/dd613251-c839-4795-b0a3-3e8a3c3a08cf)
+
 - Find "Bios lock" int setup.txt
 - you see:" BIOS Lock, VarStoreInfo(varoffset/varname) 0xYY ( Example 0x04)
 - Put modGRUBShell.efi in OC/tool and add it on config.plist (or boot using another method)
@@ -78,3 +94,6 @@ SORRY MY ENGLISH NOT GOOD
 
 
 
+# Credit
+
+https://github.com/xCuri0/ReBarUEFI/wiki/Using-UEFIPatch
