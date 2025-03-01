@@ -38,7 +38,7 @@ fptw64.exe -bios -d backup.fd
 
 </details>
 
-## II. Patch the BIOS ``backup.fd`` file
+## II. Patch the BIOS file
 
 <details>
 
