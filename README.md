@@ -73,20 +73,20 @@ fptw64.exe -bios -d backup.fd
 
 ![Right click Extract as is](https://github.com/user-attachments/assets/1588d6b5-5445-4d16-be87-381b84276152)
 
-- Name the file .sct/.bin as BIOSLock and save.
+- Name the .sct file as BIOSLock and save.
 
 ![Save as BIOS Lock](https://github.com/user-attachments/assets/46d1a964-2afd-4f24-a721-e8a478fdb9c1)
 
-- Extract [IFRExtract](https://github.com/LongSoft/IFRExtractor-RS/releases), then open Command Prompt and type ``ifrextractor.exe BIOSLock.sct`` or ``ifrextractor.exe BIOSLock.bin``
+- Extract [IFRExtract](https://github.com/LongSoft/IFRExtractor-RS/releases), then open Command Prompt and type ``ifrextractor.exe BIOSLock.sct``
 
 ![Extract the BIOSLock](https://github.com/user-attachments/assets/db1afd80-d683-4083-861a-84138fc9fe2e)
 
-- IRFExtract will generate **BIOSLock.sct.0.0.en-US.uefi.ifr.txt** file or **BIOSLock.bin.0.0.en-US.uefi.ifr.txt** file. Open the new txt file and find **BIOS Lock**. Check for **VarOffset**, **VarStoreInfo** or **Varname** value `0xYY` and write it down a note or something (in my case it is ``0x40``)
+- Open **BIOSLock.sct.0.0.en-US.uefi.ifr.txt** file generated from IFRExtract and find **BIOS Lock**. Check for **VarOffset**, **VarStoreInfo** or **Varname** value `0xYY` and write it down a note or something (in my case it is ``0x40``)
 
 ![BIOS Lock search](https://github.com/user-attachments/assets/dd613251-c839-4795-b0a3-3e8a3c3a08cf)
 
 - Boot from [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases):
-  - Through a UEFI shell (navigate the FS with `cd` and `ls` basic UNIX navigation commands) and find the `EFI partition` where the `modGRUBShell.efi` file is located
+  - Through a UEFI shell (navigate the FS with `cd` and `ls` basic UNIX navigation commands). Find the `EFI partition` where the `modGRUBShell.efi` file is located
   - Or through OpenCore Bootloader (by adding it to `config.plist` under `Misc/Tools` context)
 
 ![modGRUBShell efi](https://github.com/user-attachments/assets/7eb49935-2c65-4886-8d76-9ba2e1dd55a4)
@@ -123,6 +123,7 @@ fptw64.exe -bios -f flash.fd
 ![And now we wait](https://github.com/user-attachments/assets/d9fe5efd-3d41-4b75-9135-fee1097af814)
 
 - The CFG Lock should be disabled after the Command Prompt finished patching. Checking via [ControlMsrE2.efi](https://github.com/acidanthera/OpenCorePkg/releases) should provide:
+
 ```This firmware has UNLOCKED MSR 0xE2 register!```
 
 ![ControlMsrE2](https://github.com/user-attachments/assets/5c15d1c7-6cce-4367-8ba2-5f4be817d139)
