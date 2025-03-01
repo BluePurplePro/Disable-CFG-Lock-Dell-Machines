@@ -16,13 +16,13 @@ This repository will guide you how to disable CFG Lock on Dell Machines. Useful 
 
 ![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
 
-## I. Create a backup BIOS using [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
+## I. Dump your BIOS
 
 <details>
 
-<summary>Create a backup BIOS using Intel ME System Tools</summary>
+<summary>Dump your BIOS</summary>
 
-- Extract Intel ME System Tools (Assuming all downloaded files are in `%userprofile%\Downloads`)
+- Extract [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region) (Assuming all downloaded files are in `%userprofile%\Downloads`)
 - Go to `%userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64` and create a new text document
 
 ![Create new text document](https://github.com/user-attachments/assets/71743be5-2c7f-42e6-bd5d-cc3c3b2ca86a)
