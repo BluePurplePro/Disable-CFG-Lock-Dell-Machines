@@ -1,11 +1,7 @@
-# DELL-CFG-Unlock
-
+# Disable-CFG-Lock-Dell-Machines
+This repository will guide you how to disable CFG Lock on Dell Machines. Useful for those who can't find ``CFG Lock`` or ``MSR Lock`` Unicode text in their extracted BIOS file that [Fixing CFG Lock from Dortania's OpenCore Post Install Guide](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) and [dreamwhite's bios extraction guide](https://github.com/dreamwhite/bios-extraction-guide) covered
 
 # Preparation
-- Windows operating system-duh!
-- Turn off Hide extensions for known file types on File Explorer Options
-
-![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
 - [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases)
 - [UEFITool & UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
 - [IFRExtract](https://github.com/LongSoft/IFRExtractor-RS/releases)
@@ -15,8 +11,17 @@
 > ![CPU-Z](https://github.com/user-attachments/assets/4eef748d-30ff-4842-b004-fa24ec868b9b)
 >
 > For example, Intel ME System Tools v8 r3 (7-Series systems which come with ME firmware v8) is the right version for my motherboard since the southbridge is QM77
+- Windows operating system-duh!
+- Turn off Hide extensions for known file types on File Explorer Options
+
+![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
 
 ## I. Create a backup BIOS using [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
+
+<details>
+
+<summary>Create a backup BIOS using Intel ME System Tools</summary>
+
 - Extract Intel ME System Tools (Assuming all downloaded files are in %userprofile%\Downloads)
 - Go to %userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64 and create a new text document
 
@@ -31,8 +36,15 @@ fptw64.exe -bios -d backup.fd
 
 ![backupbios bat](https://github.com/user-attachments/assets/30c9c768-2053-4347-b33b-239a249f263d)
 
+</details>
+
 ## II. Patch the BIOS ``backup.fd`` file
-- Extract UEFIPatch
+
+<details>
+
+<summary>Patch the BIOS backup.fd file</summary>
+
+ - Extract UEFIPatch
 - Copy ``backup.fd`` file from step 1 to %userprofile%\Downloads (same folder with UEFIPatch)
 - Open Command Promt and type ``cd %userprofile%\Downloads`` then press Enter
 - Type ```UEFIPatch.exe backup.fd``` then press Enter to patch the backup.fd file
@@ -44,7 +56,14 @@ fptw64.exe -bios -d backup.fd
 
 ![Copy flash fd to userprofile_downloads_intel me system tools](https://github.com/user-attachments/assets/497f97ee-d0da-4326-8145-a3600ec0d86a)
 
+</details>
+ 
 ## III. Unlock the BIOS
+
+<details>
+
+<summary>Unlock the BIOS</summary>
+
 - Extract UEFITool
 - Open backup.fd file using UEFITool.exe and find **BIOS Lock** in the **Text** tab ~> Press Enter
 
@@ -81,8 +100,15 @@ fptw64.exe -bios -d backup.fd
 ![Type setup_var 0xYY 0x00](https://github.com/user-attachments/assets/ce2d4aa1-5b10-465a-a5c2-0e89ac11c804)
 
  - After that, type ``exit`` and reboot back to Windows
- 
+
+</details>
+
 ## IV. Disable CFG Lock
+
+<details>
+
+<summary>Disable CFG Lock</summary>
+
 - Go to %userprofile%\Downloads\Intel ME System Tools\Flash Programming Tool\Windows64 and create a new text document
 - Edit the new text document, type/copy these command line and save it.
 ```
@@ -105,7 +131,15 @@ fptw64.exe -bios -f flash.fd
 
 - Which means CFG Lock is disabled.
 
+</details>
 
 # Credit
-
-https://github.com/xCuri0/ReBarUEFI/wiki/Using-UEFIPatch
+- [acidanthera](https://github.com/acidanthera) for [OpenCore Bootloader](https://github.com/acidanthera/OpenCorePkg)
+- [Dotarnia](https://github.com/dortania) for [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html#fixing-cfg-lock)
+- [dreamwhite](https://github.com/dreamwhite) for [bios extraction guide](https://github.com/dreamwhite/bios-extraction-guide)
+- [platomav](https://github.com/platomav) for [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
+- [LongSoft](https://github.com/LongSoft) for [UEFITool](https://github.com/LongSoft/UEFITool), [UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0) and [IRFExtractor](https://github.com/LongSoft/IFRExtractor-RS)
+- [datasone](https://github.com/datasone) for [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var)
+- [xdnuos](https://github.com/xdnuos) for [DELL-CFG-Unlock](https://github.com/xdnuos/DELL-CFG-Unlock)
+- [xCuri0](https://github.com/xCuri0) for [Using UEFIPatch](https://github.com/xCuri0/ReBarUEFI/wiki/Using-UEFIPatch)
+ 
