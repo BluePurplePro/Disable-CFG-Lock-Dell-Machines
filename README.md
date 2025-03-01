@@ -3,7 +3,7 @@
 
 # Preparation
 - Windows operating system-duh!
-- Turn off Hide extensions for known file types
+- Turn off Hide extensions for known file types on File Explorer Options
 
 ![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
 - [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases)
@@ -64,9 +64,9 @@ fptw64.exe -bios -d backup.fd
 
 ![BIOS Lock search](https://github.com/user-attachments/assets/dd613251-c839-4795-b0a3-3e8a3c3a08cf)
 
-- Find "Bios lock" int setup.txt
-- you see:" BIOS Lock, VarStoreInfo(varoffset/varname) 0xYY ( Example 0x04)
-- Put modGRUBShell.efi in OC/tool and add it on config.plist (or boot using another method)
+- Add modGRUBShell.efi to config.plist, copy modGRUBShell.efi to EFI/OC/Tool
+- Boot modGRUBShell.efi from OpenCore Bootloader
+
 - TYPE
    
   setup_var 0xYY (You will see "offset is 0x01")
