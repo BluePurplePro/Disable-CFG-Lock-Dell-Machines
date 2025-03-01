@@ -42,7 +42,7 @@ fptw64.exe -bios -d backup.fd
 
 <details>
 
-<summary>Patch the BIOS backup.fd file</summary>
+<summary>Patch the BIOS file</summary>
 
 - Extract [UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
 - Copy ``backup.fd`` file from section I to `%userprofile%\Downloads` (same folder with UEFIPatch)
