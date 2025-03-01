@@ -96,9 +96,15 @@ fptw64.exe -bios -f flash.fd
 
 ![And now we wait](https://github.com/user-attachments/assets/d9fe5efd-3d41-4b75-9135-fee1097af814)
 
-- The CFG Lock should be disabled after the Command Prompt finished patching.
+- The CFG Lock should be disabled after the Command Prompt finished patching. Checking via [ControlMsrE2.efi](https://github.com/acidanthera/OpenCorePkg/releases) should provide:
+```This firmware has UNLOCKED MSR 0xE2 register!```
 
-- Using [VerifyMsrE2.efi](https://github.com/acidanthera/OpenCorePkg/releases) should return 
+![ControlMsrE2](https://github.com/user-attachments/assets/5c15d1c7-6cce-4367-8ba2-5f4be817d139)
+
+![This firmware has UNLOCKED MSR 0xE2](https://github.com/user-attachments/assets/16a5d66e-a2b7-41c5-a7a2-6af38e2c63ed)
+
+- Which means CFG Lock is disabled.
+
 
 # Credit
 
