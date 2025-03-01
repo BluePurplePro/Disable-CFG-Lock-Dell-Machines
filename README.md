@@ -12,7 +12,7 @@ This repository will guide you how to disable CFG Lock on Dell Machines. Useful 
 >
 > For example, Intel ME System Tools v8 r3 (7-Series systems which come with ME firmware v8) is the right version for my motherboard since the southbridge is QM77
 - Windows operating system-duh!
-- Turn off Hide extensions for known file types on File Explorer Options
+- Turn off **Hide extensions for known file types** on **File Explorer Options** ~> **View**
 
 ![Hide extensions for known file types](https://github.com/user-attachments/assets/44d8863c-a4a4-4c96-8995-dfdfef7560e0)
 
