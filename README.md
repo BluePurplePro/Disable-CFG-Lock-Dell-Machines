@@ -8,6 +8,7 @@ This repository will guide you how to disable CFG Lock on Dell Machines. Useful 
 - [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
 > [!IMPORTANT]
 > It is crutial to choose the right Intel ME System Tools for your motherboard. You can check what kind of chipset/southbridge using [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
+>
 > ![CPU-Z](https://github.com/user-attachments/assets/4eef748d-30ff-4842-b004-fa24ec868b9b)
 >
 > For example, Intel ME System Tools v8 r3 (7-Series systems which come with ME firmware v8) is the right version for my motherboard since the southbridge is QM77
