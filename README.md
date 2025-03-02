@@ -131,7 +131,7 @@ fptw64.exe -bios -f flash.fd
 
 ![This firmware has UNLOCKED MSR 0xE2](https://github.com/user-attachments/assets/16a5d66e-a2b7-41c5-a7a2-6af38e2c63ed)
 
-- Which means CFG Lock is disabled.
+- Which means CFG Lock is disabled. Now MacOS should boot without enabling ``AppleCpuPmCfgLock`` or ``AppleXcpmCfgLock`` in **Kernel** -> **Quirks** 
 
 </details>
 
