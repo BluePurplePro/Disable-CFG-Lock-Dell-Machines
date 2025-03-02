@@ -1,0 +1,21 @@
+- **IFR Extractor RS 1.6.0 win32**:
+  - [ifrextractor_1.6.0_win32.zip](https://github.com/user-attachments/files/19041438/ifrextractor_1.6.0_win32.zip)
+- **UEFITool 0.28.0 win32**:
+  - [UEFITool_0.28.0_win32.zip](https://github.com/user-attachments/files/19041443/UEFITool_0.28.0_win32.zip)
+- **UEFIPatch 0.28.0 win32**:
+  - [UEFIPatch_0.28.0_win32.zip](https://github.com/user-attachments/files/19041444/UEFIPatch_0.28.0_win32.zip)
+- **Intel ME System Tool**:
+  - [Intel ME System Tools v2 r1.zip](https://github.com/user-attachments/files/19041445/Intel.ME.System.Tools.v2.r1.zip) For ICH8 & ICH8M systems which come with ME firmware v2
+  - [Intel ME System Tools v3 r2.zip](https://github.com/user-attachments/files/19041447/Intel.ME.System.Tools.v3.r2.zip) For ICH9 systems which come with ME firmware v3
+  - [Intel ME System Tools v4 r1.zip](https://github.com/user-attachments/files/19041448/Intel.ME.System.Tools.v4.r1.zip) For ICH9M systems which come with ME firmware v4
+  - [Intel ME System Tools v5 r2.zip](https://github.com/user-attachments/files/19041449/Intel.ME.System.Tools.v5.r2.zip) For ICH10 systems which come with ME firmware v5
+  - [Intel ME System Tools v6 CCK r1.zip](https://github.com/user-attachments/files/19041450/Intel.ME.System.Tools.v6.CCK.r1.zip) For 5-series (Ibex Peak) or 89xx-series (Cave/Coleto Creek) systems which come with ME **Ignition** firmware v6
+  - [Intel ME System Tools v6 IBX r2.zip](https://github.com/user-attachments/files/19041451/Intel.ME.System.Tools.v6.IBX.r2.zip) For 5/34xx-series systems which run ME 1.5MB, 5MB DT, 5MB MB, Ignition IBX v6
+  - [Intel ME System Tools v7 r2.zip](https://github.com/user-attachments/files/19041452/Intel.ME.System.Tools.v7.r2.zip) For 6-series systems which come with ME firmware v7
+  - [Intel ME System Tools v8 r3.zip](https://github.com/user-attachments/files/19041453/Intel.ME.System.Tools.v8.r3.zip) For 7-Series systems which come with ME firmware v8. **Also for some 6-series, C600 & X79 systems which have been upgraded to ME firmware v8**
+  - [Intel ME System Tools v9.0 r1.zip](https://github.com/user-attachments/files/19041454/Intel.ME.System.Tools.v9.0.r1.zip) For 8-series systems which come with ME firmware v9.0
+  - [Intel ME System Tools v9.1 r7.zip](https://github.com/user-attachments/files/19041455/Intel.ME.System.Tools.v9.1.r7.zip) For 8/9/C220/C610-series systems which come with ME v9.0 - v9.1
+  - [Intel ME System Tools v9.5 r6.zip](https://github.com/user-attachments/files/19041456/Intel.ME.System.Tools.v9.5.r6.zip) For 8-series systems which come with ME firmware v9.5
+  - [Intel ME System Tools v10.0 r8.zip](https://github.com/user-attachments/files/19041458/Intel.ME.System.Tools.v10.0.r8.zip) For Broadwell mobile systems which come with ME firmware v10.0
+
+
