@@ -3,7 +3,7 @@ This repository will guide you how to disable CFG Lock on Dell Machines (mostly 
 
 # Preparation
 - [modGRUBShell.efi](https://github.com/datasone/grub-mod-setup_var/releases)
-- [UEFITool & UEFIPatch](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
+- [UEFITool 0.28.0 & UEFIPatch 0.28.0](https://github.com/LongSoft/UEFITool/releases/tag/0.28.0)
 - [IFRExtract](https://github.com/LongSoft/IFRExtractor-RS/releases)
 - [Intel ME System Tools](https://comsystem-tlt.ru/obzori/me-txe-region)
 > [!IMPORTANT]
